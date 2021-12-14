@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" routerLink="/home">
+      <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+    </ion-button>
+    <ion-title>Resultados de busqueda para {{name}}</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <div *ngIf="swt!=0 ; else loggedOut">
+      <div *ngFor="let usuario of usuarios; let i = index">
+        <ion-item *ngIf="i<=9" >
+          <ion-avatar slot="start">
+            <img src="{{usuario.avatar_url}}">
+          </ion-avatar>
+          <ion-label>
+              <h2>{{usuario.login}}</h2>
+              <p>{{usuario.id}} </p>
+          </ion-label>
+          <ion-button (click)="verDetalles(usuario.login)" color="danger" slot="end">
+              Detalles
+          </ion-button>
+      </ion-item>
+      </div>
+  </div>
+  <ng-template #loggedOut style="margin: auto !important;">
+    No se encontraron resultados
+  </ng-template>
+    
+</ion-content>

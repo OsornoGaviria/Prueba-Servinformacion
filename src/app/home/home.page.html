@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img src="{{image}}" class="image">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-searchbar  [(ngModel)]="parametro" placeholder="Buscar por usuario" style="width: 55%; margin: auto !important;"></ion-searchbar>
+   <ion-button shape="round" (click)="buscar()"  color="danger">Buscar</ion-button>
+  </div>
+
+  <div>
+    <ion-item *ngFor="let lista of listado">
+      <ion-label>
+          {{id}}
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>
